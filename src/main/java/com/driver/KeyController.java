@@ -61,4 +61,10 @@ public class KeyController {
             System.out.println("Key with ID " + id + " not found.");
         }
     }
+    public static void main(String[] args) {
+        KeyRepository keyRepository = new KeyRepository();
+        KeyService keyService = new KeyService(keyRepository);
+        KeyController keyController = new KeyController(keyService);
+        keyController.processUserInput();
+    }
 }
