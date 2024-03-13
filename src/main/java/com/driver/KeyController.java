@@ -34,13 +34,31 @@ public class KeyController {
     }
 
     private void printMenu() {
-    	//your code goes here
-
+        //your code goes here
+        System.out.println("1. Add Key");
+        System.out.println("2. Get Key Details");
+        System.out.println("3. Exit");
+        System.out.println("Choose an option:");
+    }
     private void addKey(Scanner scanner) {
     	//your code goes here
+        System.out.print("Enter key type: ");
+        scanner.nextLine(); // consume newline character
+        String type = scanner.nextLine();
+        System.out.print("Enter key description: ");
+        String description = scanner.nextLine();
+        keyService.addKey(type, description);
     }
 
     private void getKeyDetails(Scanner scanner) {
     	//your code goes here
+        System.out.print("Enter ID to fetch key details: ");
+        int id = scanner.nextInt();
+        Key key = keyService.getKeyById(id);
+        if (key != null) {
+            System.out.println("Key Details: " + key);
+        } else {
+            System.out.println("Key with ID " + id + " not found.");
+        }
     }
 }

@@ -25,5 +25,15 @@ public class Key {
     	//your code goes here
         return description;
     }
+
+    public void setId(int id){
+        this.id=id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Key(id=" + id + ", type=" + type + ", description=" + description + ')';
+    }
 }
 
